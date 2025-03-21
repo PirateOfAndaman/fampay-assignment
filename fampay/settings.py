@@ -11,10 +11,18 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+CREDENTIALS_FILE = BASE_DIR / ".credentials"
+if CREDENTIALS_FILE.exists():
+    with open(CREDENTIALS_FILE) as f:
+        for line in f:
+            key, value = line.strip().split("=")
+            os.environ[key] = value 
+YOUTUBE_API_KEYS = os.getenv("YOUTUBE_API_KEYS", "").split(",")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -131,8 +139,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CELERY_BROKER_URL="redis://127.0.0.1:6379"
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Redis result backend
+CELERY_BROKER_URL = 'redis://redis:6379//'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'  # Redis result backend
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'

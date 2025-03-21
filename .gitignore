@@ -147,3 +147,5 @@ tmp/*
 cython_debug/
 
 fampay/static/
+.credentials
+dump.rdb
