@@ -138,10 +138,3 @@ The application includes automated Celery tasks:
 │── manage.py                 # Django management script
 │── .credentials              # User has to provide youtube api keys
 ```
-
-
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
