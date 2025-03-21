@@ -16,8 +16,8 @@ api_key_iterator = itertools.cycle(YOUTUBE_API_KEYS)
 CURRENT_API_KEY = next(api_key_iterator)
 
 YOUTUBE_API_URL = "https://www.googleapis.com/youtube/v3/search"
-FETCH_INTERVAL = 300  # Fetch interval in seconds
-LOCK_EXPIRY = 305  # Redis lock expiry in seconds
+FETCH_INTERVAL = 30  # Fetch interval in seconds
+LOCK_EXPIRY = 35  # Redis lock expiry in seconds
 
 
 def get_next_api_key():
