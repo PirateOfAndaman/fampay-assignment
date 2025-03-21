@@ -35,15 +35,29 @@ A Django application with Celery for managing and searching video content.
     ```bash
     YOUTUBE_API_KEYS=KEY1,KEY2
     ```
+3. Make Migrations
+  python manage.py migrate
+  python manage.py migrate video
 
-2. Build and run the Docker containers:
-   ```bash
-   docker-compose up --build
-   ```
+4. Start Celery worker
+  ```bash
+  celery -A fampay worker --loglevel=info &
+  ```
+5. Start Celery beat
+  ```bash
+  celery -A fampay beat --loglevel=info &
+  ```
 
-3. The application will be available at:
+6. The application will be available at:
    - Django server: [http://localhost:8000](http://localhost:8000)
    - API endpoints: [http://localhost:8000/api/](http://localhost:8000/api/)
+
+## Or Just User Docker 
+Build your image with, make sure you have added the .credentials file
+
+```bash
+docker compose up
+```
 
 ## 📚 API Documentation
 
