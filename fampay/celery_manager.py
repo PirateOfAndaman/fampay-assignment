@@ -14,6 +14,6 @@ celery_app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 celery_app.conf.beat_schedule = {
     "fetch_youtube_videos_every_10_sec": {
         "task": "apps.video.tasks.fetch_latest_videos",
-        "schedule": 5.0, 
+        "schedule": 30.0, 
     },
 }

@@ -52,7 +52,7 @@ A Django application with Celery for managing and searching video content.
    - Django server: [http://localhost:8000](http://localhost:8000)
    - API endpoints: [http://localhost:8000/api/](http://localhost:8000/api/)
 
-## Or Just User Docker 
+## Or Just Use Docker 
 Build your image with, make sure you have added the .credentials file
 
 ```bash
